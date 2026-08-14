@@ -7,7 +7,7 @@
 [![Codex Skill](https://img.shields.io/badge/Codex-Skill-6C47FF?style=for-the-badge)](https://developers.openai.com/codex/use-cases)
 [![Accessibility](https://img.shields.io/badge/Accessibility-First-0078D4?style=for-the-badge)](#quality-principles)
 [![Inputs](https://img.shields.io/badge/Inputs-Local%20%7C%20URL-00A36C?style=for-the-badge)](#-supported-image-inputs)
-[![Validate skill](https://github.com/TechWriterP/alt-text-generator/actions/workflows/validate-skill.yml/badge.svg)](https://github.com/TechWriterP/alt-text-generator/actions/workflows/validate-skill.yml)
+[![Validate skill](https://img.shields.io/github/actions/workflow/status/TechWriterP/alt-text-generator/validate-skill.yml?branch=main&style=for-the-badge&label=Validate%20skill)](https://github.com/TechWriterP/alt-text-generator/actions/workflows/validate-skill.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge)](LICENSE)
 
 Generate documentation-ready alt text for UI screenshots, diagrams, charts, product images, and decorative visuals.
