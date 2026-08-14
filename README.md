@@ -48,6 +48,17 @@ Provide one image in any of these forms:
 
 Relative paths resolve from the project root. For an online image, the skill verifies that the URL returns an image. If a temporary download is needed for inspection, it is not added to the project.
 
+## 🧰 Prerequisites
+
+To use all input options, the Codex environment must have:
+
+- **Image-viewing capability** to inspect attached and locally saved images
+- **Network access** to retrieve images from public `http://` or `https://` URLs
+- **File-read permission** for the supplied local image path
+
+> [!IMPORTANT]
+> These capabilities can vary by Codex environment, workspace permissions, and network policy. If an image cannot be opened or retrieved, the skill reports the problem instead of generating alt text from the file name or URL.
+
 ## 🚀 Quick start
 
 ### 1. Clone the repository
@@ -82,7 +93,7 @@ Ask Codex:
 
 ```text
 Install the alt-text-generator skill from:
-https://github.com/TechWriterP/alt-text-generator/tree/main/.agents/skills/alt-text-generator
+https://github.com/TechWriterP/alt-text-generator/tree/v1.0.0/.agents/skills/alt-text-generator
 ```
 
 Or install it manually with PowerShell:
