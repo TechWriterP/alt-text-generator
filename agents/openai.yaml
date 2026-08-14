@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alt Text Generator"
+  short_description: "Write concise alt text for technical images"
+  default_prompt: "Use $alt-text-generator to write documentation-ready alt text for this image."
