@@ -8,7 +8,7 @@
 [![Accessibility](https://img.shields.io/badge/Accessibility-First-0078D4?style=for-the-badge)](#-quality-principles)
 [![Inputs](https://img.shields.io/badge/Inputs-Local%20%7C%20URL-00A36C?style=for-the-badge)](#-supported-image-inputs)
 [![Validate skill](https://github.com/TechWriterP/alt-text-generator/actions/workflows/validate-skill.yml/badge.svg)](https://github.com/TechWriterP/alt-text-generator/actions/workflows/validate-skill.yml)
-[![License](https://img.shields.io/badge/License-Not%20yet%20added-F59E0B?style=for-the-badge)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge)](LICENSE)
 
 Generate documentation-ready alt text for UI screenshots, diagrams, charts, product images, and decorative visuals.
 
@@ -94,7 +94,7 @@ Ask Codex:
 
 ```text
 Install the alt-text-generator skill from:
-https://github.com/TechWriterP/alt-text-generator/tree/v1.0.0/.agents/skills/alt-text-generator
+https://github.com/TechWriterP/alt-text-generator/tree/v1.0.1/.agents/skills/alt-text-generator
 ```
 
 Or install it manually with PowerShell:
@@ -211,14 +211,20 @@ The skill aims to produce alt text that is:
 - Do not commit temporary downloads of remote images.
 - Remember that files committed to a public GitHub repository are available to anyone.
 
+## 📜 License
+
+This project is available under the [MIT License](LICENSE). You may use, copy, modify, and redistribute it as long as the copyright and license notice remain included.
+
 ## 📁 Repository structure
 
 ```text
 alt-text-generator/
 ├── README.md
+├── LICENSE
 └── .agents/
     └── skills/
         └── alt-text-generator/
+            ├── LICENSE.txt
             ├── SKILL.md
             ├── agents/
             │   └── openai.yaml

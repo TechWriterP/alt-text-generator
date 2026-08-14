@@ -19,7 +19,9 @@ SKILL_ROOT = REPOSITORY_ROOT / ".agents" / "skills" / "alt-text-generator"
 
 REQUIRED_FILES = (
     REPOSITORY_ROOT / "README.md",
+    REPOSITORY_ROOT / "LICENSE",
     SKILL_ROOT / "SKILL.md",
+    SKILL_ROOT / "LICENSE.txt",
     SKILL_ROOT / "agents" / "openai.yaml",
     SKILL_ROOT / "references" / "contract.md",
     SKILL_ROOT / "references" / "test-cases.md",
