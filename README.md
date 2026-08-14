@@ -1,42 +1,80 @@
-# Alt Text Generator
+<div align="center">
 
-Alt Text Generator is a reusable Codex skill that creates concise, documentation-ready alt text for technical images. It is optimized for UI screenshots, diagrams, charts, product images, and decorative images, with an emphasis on clarity, accessibility, and useful context.
+# 🖼️ Alt Text Generator
 
-The skill can use optional page or topic context to describe why an image matters instead of listing every visible detail. It can also review and improve existing alt text.
+### Clear, concise alt text for technical documentation
 
-## Supported image inputs
+[![Codex Skill](https://img.shields.io/badge/Codex-Skill-6C47FF?style=for-the-badge)](https://developers.openai.com/codex/use-cases)
+[![Accessibility](https://img.shields.io/badge/Accessibility-First-0078D4?style=for-the-badge)](#-quality-principles)
+[![Inputs](https://img.shields.io/badge/Inputs-Local%20%7C%20URL-00A36C?style=for-the-badge)](#-supported-image-inputs)
+[![License](https://img.shields.io/badge/License-Not%20yet%20added-F59E0B?style=for-the-badge)](#)
+
+Generate documentation-ready alt text for UI screenshots, diagrams, charts, product images, and decorative visuals.
+
+[Get started](#-quick-start) · [Install](#-personal-installation) · [Examples](#-example-prompts) · [Privacy](#-privacy-and-security)
+
+</div>
+
+---
+
+## ✨ What this skill does
+
+Alt Text Generator is a reusable Codex skill that examines an image and produces concise alt text focused on the image's purpose in technical documentation.
+
+| Capability | What it provides |
+|---|---|
+| 🖥️ UI screenshots | Relevant controls, states, values, and results |
+| 🔀 Diagrams | Important relationships, sequences, and flows |
+| 📊 Charts | Key trends, comparisons, and notable values |
+| 📦 Product images | Task-relevant features, orientation, and physical details |
+| ✨ Decorative images | Empty alt text when the image adds no information |
+| ✏️ Alt-text review | Clearer replacements for vague or redundant descriptions |
+
+Optional page or topic context helps the skill explain why the image matters instead of inventorying every visible detail.
+
+> [!TIP]
+> Include the nearby heading, procedure step, or reader goal. Context usually produces more useful alt text.
+
+## 📥 Supported image inputs
 
 Provide one image in any of these forms:
 
-- An image attached to the Codex request
-- A path relative to the current project, such as `Images/Salesforce/example.webp`
-- An absolute local path, such as `C:\docs\images\deployment-status.png`
-- A publicly accessible `http://` or `https://` image URL
+| Input | Example |
+|---|---|
+| Attached image | Attach an image directly to the Codex request |
+| Project-relative path | `docs/images/deployment-status.png` |
+| Absolute local path | `C:\docs\images\router-rear.png` |
+| Public image URL | `https://example.com/images/chart.png` |
 
-Relative paths are resolved from the project root. For an online image, the skill verifies that the URL returns an image and uses a temporary local copy only when needed for inspection. Temporary downloads are not added to the project.
+Relative paths resolve from the project root. For an online image, the skill verifies that the URL returns an image. If a temporary download is needed for inspection, it is not added to the project.
 
-## Clone and use the project-local skill
+## 🚀 Quick start
 
-Clone the repository:
+### 1. Clone the repository
 
 ```powershell
 git clone https://github.com/TechWriterP/alt-text-generator.git
 cd alt-text-generator
 ```
 
-Open the cloned folder as a project in Codex and start a new task. Codex discovers the skill from:
+### 2. Open the project in Codex
+
+Start a new task from the cloned folder. Codex discovers the project-local skill at:
 
 ```text
 .agents/skills/alt-text-generator/
 ```
 
-Invoke it by name:
+### 3. Generate alt text
 
 ```text
-Use $alt-text-generator for Images/Salesforce/aad36fccc6ccf3d23917a5ef33dc771f_kix.pyrvpa5gomzb.webp.
+Use $alt-text-generator for docs/images/deployment-status.png.
+
+Page context: Verify that the production deployment succeeded.
+Maximum length: 150 characters.
 ```
 
-## Install the skill personally
+## 👤 Personal installation
 
 A personal installation makes the skill available across your Codex projects.
 
@@ -47,7 +85,7 @@ Install the alt-text-generator skill from:
 https://github.com/TechWriterP/alt-text-generator/tree/main/.agents/skills/alt-text-generator
 ```
 
-Alternatively, clone the repository and copy the skill folder in PowerShell:
+Or install it manually with PowerShell:
 
 ```powershell
 git clone https://github.com/TechWriterP/alt-text-generator.git
@@ -59,20 +97,25 @@ New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills"
 Copy-Item -Recurse -Force $source $destination
 ```
 
-If a skill with the same name is already installed, remove or rename the existing installation before copying the new version. Start a new Codex task after installation so the skill is available.
+> [!NOTE]
+> If a skill with the same name is already installed, remove or rename it before copying the new version. Start a new Codex task after installation.
 
-## Example prompts
+## 💬 Example prompts
 
-### UI screenshot from the project
+<details open>
+<summary><strong>UI screenshot from the project</strong></summary>
 
 ```text
-Use $alt-text-generator for Images/deployment-status.png.
+Use $alt-text-generator for docs/images/deployment-status.png.
 
 Page context: This image appears in a procedure for verifying that a production deployment succeeded.
 Maximum length: 150 characters.
 ```
 
-### Chart from an online URL
+</details>
+
+<details>
+<summary><strong>Chart from an online URL</strong></summary>
 
 ```text
 Use $alt-text-generator for:
@@ -82,7 +125,10 @@ Topic: API performance after the June optimization.
 Focus on the main trend rather than every data point.
 ```
 
-### Product image from an absolute path
+</details>
+
+<details>
+<summary><strong>Product image from an absolute path</strong></summary>
 
 ```text
 Use $alt-text-generator for C:\docs\images\router-rear.png.
@@ -90,71 +136,91 @@ Use $alt-text-generator for C:\docs\images\router-rear.png.
 Topic: Show readers where to find the router reset control.
 ```
 
-### Improve existing alt text
+</details>
+
+<details>
+<summary><strong>Improve existing alt text</strong></summary>
 
 ```text
-Use $alt-text-generator to improve the alt text for Images/sign-in-error.png.
+Use $alt-text-generator to improve the alt text for docs/images/sign-in-error.png.
 
 Existing alt text: Screenshot of a dialog box on a computer screen.
 Page context: Troubleshoot an invalid password during sign-in.
 ```
 
-## Example output
+</details>
 
-By default, the skill returns YAML:
+## ✅ Example output
 
 ```yaml
 alt_text: "Production deployment for version 2.4.1 has a Success status"
 classification: "ui-screenshot"
-source: "Images/deployment-status.png"
+source: "docs/images/deployment-status.png"
 ```
 
-For a decorative image, it returns empty alt text and explains why:
+For a decorative image:
 
 ```yaml
 alt_text: ""
 classification: "decorative"
 note: "The image adds no information to the page."
-source: "Images/decorative-wave.png"
+source: "docs/images/decorative-wave.png"
 ```
 
-## Limitations
+## ♿ Quality principles
 
-- Generated alt text should be reviewed by a person familiar with the page and its audience.
-- Missing context can produce a visually accurate description that does not communicate the image's purpose.
-- The skill does not infer details that are not visible or supported by supplied context.
-- Dense charts and complex diagrams may need a nearby data table, caption, or long description in addition to alt text.
-- Text in small, blurry, cropped, or low-resolution images might not be readable.
+The skill aims to produce alt text that is:
+
+- **Purposeful:** Communicates why the image matters on the page
+- **Concise:** Usually one sentence and preferably no more than 150 characters
+- **Accurate:** Avoids unsupported assumptions
+- **Direct:** Leads with the most useful information
+- **Nonredundant:** Avoids phrases such as “image of” and “screenshot of”
+- **Accessible:** Does not depend on color alone to communicate meaning
+
+## ⚠️ Limitations
+
+- Human review is recommended, especially for published or regulated content.
+- Missing context can produce a visually accurate but less useful description.
+- Dense charts and complex diagrams may also require a data table, caption, or long description.
+- Small, blurry, cropped, or low-resolution text might not be readable.
 - Private, authenticated, expired, or access-restricted URLs might not be retrievable.
-- A URL that returns a web page instead of an image is rejected.
-- Only `http://` and `https://` URLs are supported for remote images.
+- Remote inputs support only `http://` and `https://` URLs.
+- URLs that return web pages instead of image content are rejected.
 
-## Privacy considerations
+## 🔐 Privacy and security
 
-- Review images before sharing them with Codex or committing them to a public repository.
-- Remove or obscure passwords, access tokens, customer information, email addresses, internal URLs, account identifiers, and other sensitive data.
-- Treat pre-signed and token-bearing image URLs as secrets. Do not place them in prompts, documentation, logs, or commits unless disclosure is explicitly authorized.
+> [!WARNING]
+> Review every image before processing it or committing it to a public repository.
+
+- Remove or obscure passwords, tokens, customer data, email addresses, internal URLs, and account identifiers.
+- Treat pre-signed or token-bearing image URLs as secrets.
 - Confirm that you have permission to download, process, and redistribute online images.
-- Do not commit temporary copies of remote images.
-- Remember that a public GitHub repository makes committed example images available to anyone.
+- Do not commit temporary downloads of remote images.
+- Remember that files committed to a public GitHub repository are available to anyone.
 
-## Repository structure
+## 📁 Repository structure
 
 ```text
 alt-text-generator/
-|-- README.md
-|-- Images/
-`-- .agents/
-    `-- skills/
-        `-- alt-text-generator/
-            |-- SKILL.md
-            |-- agents/
-            |   `-- openai.yaml
-            `-- references/
-                |-- contract.md
-                `-- test-cases.md
+├── README.md
+└── .agents/
+    └── skills/
+        └── alt-text-generator/
+            ├── SKILL.md
+            ├── agents/
+            │   └── openai.yaml
+            └── references/
+                ├── contract.md
+                └── test-cases.md
 ```
 
-## Learn more
+---
 
-OpenAI describes skills as reusable workflows that Codex can keep available for repeated work. See the [Codex use cases](https://developers.openai.com/codex/use-cases).
+<div align="center">
+
+Built for clearer, more accessible technical documentation.
+
+[View the skill](.agents/skills/alt-text-generator/SKILL.md) · [Report an issue](https://github.com/TechWriterP/alt-text-generator/issues)
+
+</div>
