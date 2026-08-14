@@ -1,0 +1,39 @@
+name: Validate skill
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Alt Text Generator
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validation dependency
+        run: python -m pip install --disable-pip-version-check PyYAML==6.0.2
+
+      - name: Run skill quick validation
+        env:
+          OPENAI_SKILLS_COMMIT: "49f948faa9258a0c61caceaf225e179651397431"
+          SKILL_PATH: ".agents/skills/alt-text-generator"
+        run: |
+          curl --fail --silent --show-error --location \
+            "https://raw.githubusercontent.com/openai/skills/${OPENAI_SKILLS_COMMIT}/skills/.system/skill-creator/scripts/quick_validate.py" \
+            --output "${RUNNER_TEMP}/quick_validate.py"
+          python "${RUNNER_TEMP}/quick_validate.py" "${SKILL_PATH}"
+
+      - name: Validate repository files and metadata
+        run: python scripts/validate_repository.py
