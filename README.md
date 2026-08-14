@@ -5,14 +5,14 @@
 ### Clear, concise alt text for technical documentation
 
 [![Codex Skill](https://img.shields.io/badge/Codex-Skill-6C47FF?style=for-the-badge)](https://developers.openai.com/codex/use-cases)
-[![Accessibility](https://img.shields.io/badge/Accessibility-First-0078D4?style=for-the-badge)](#-quality-principles)
+[![Accessibility](https://img.shields.io/badge/Accessibility-First-0078D4?style=for-the-badge)](#quality-principles)
 [![Inputs](https://img.shields.io/badge/Inputs-Local%20%7C%20URL-00A36C?style=for-the-badge)](#-supported-image-inputs)
 [![Validate skill](https://github.com/TechWriterP/alt-text-generator/actions/workflows/validate-skill.yml/badge.svg)](https://github.com/TechWriterP/alt-text-generator/actions/workflows/validate-skill.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge)](LICENSE)
 
 Generate documentation-ready alt text for UI screenshots, diagrams, charts, product images, and decorative visuals.
 
-[Get started](#-quick-start) · [Install](#-personal-installation) · [Examples](#-example-prompts) · [Privacy](#-privacy-and-security)
+[About](#-what-this-skill-does) | [Supported inputs](#-supported-image-inputs) | [Prerequisites](#-prerequisites) | [Quick start](#-quick-start) | [Installation](#-personal-installation) | [Quality principles](#quality-principles) | [Limitations](#limitations) | [Privacy and security](#-privacy-and-security) | [License](#-license) | [Repository structure](#-repository-structure)
 
 </div>
 
@@ -179,6 +179,8 @@ note: "The image adds no information to the page."
 source: "docs/images/decorative-wave.png"
 ```
 
+<a id="quality-principles"></a>
+
 ## 🛡️ Quality principles
 
 The skill aims to produce alt text that is:
@@ -189,6 +191,8 @@ The skill aims to produce alt text that is:
 - **Direct:** Leads with the most useful information
 - **Nonredundant:** Avoids phrases such as “image of” and “screenshot of”
 - **Accessible:** Does not depend on color alone to communicate meaning
+
+<a id="limitations"></a>
 
 ## ⚠️ Limitations
 
