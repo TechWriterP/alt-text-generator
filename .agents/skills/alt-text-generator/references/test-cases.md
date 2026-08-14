@@ -2,6 +2,26 @@
 
 Use these cases to check behavior. The expected outputs illustrate intent; exact wording may vary if it preserves the same information.
 
+## Input handling
+
+### Project-relative path
+
+**Input:** `docs/images/deployment-status.png`
+
+**Expected behavior:** Resolve the path from the project root, inspect the image, and include the normalized path in `source`.
+
+### Online image URL
+
+**Input:** `https://example.com/images/router-rear.png`
+
+**Expected behavior:** Retrieve and inspect the image, include the URL in `source`, and do not add a downloaded copy to the project.
+
+### Inaccessible input
+
+**Input:** A missing local path or a URL that returns HTML instead of an image.
+
+**Expected behavior:** Identify the failed input and request a valid image. Do not generate alt text from the path or URL wording.
+
 ## 1. UI screenshot: relevant state
 
 **Image:** A deployment page showing Production with a green Success badge and version 2.4.1.

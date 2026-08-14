@@ -4,7 +4,11 @@
 
 Required:
 
-- `image`: An attached or accessible image.
+- `image`: Exactly one of the following:
+  - an image attached to the request;
+  - a relative path to an image in the current project;
+  - an absolute local image path;
+  - a direct or publicly accessible `http://` or `https://` image URL.
 
 Optional:
 
@@ -16,6 +20,16 @@ Optional:
 
 Treat context as guidance, not as evidence of details that are not visible in the image.
 
+## Image input resolution
+
+1. Prefer an explicitly supplied image over any image inferred from context.
+2. Resolve a relative local path from the project root, not from the skill folder.
+3. Verify that a local file exists and is a supported image before inspecting it.
+4. For an HTTP or HTTPS URL, follow ordinary redirects and verify that the retrieved content is an image.
+5. If URL inspection requires a local copy, store it only in a temporary working location and do not commit it.
+6. Reject unsupported schemes such as `file:`, `ftp:`, or `data:` unless the image is already attached through the client.
+7. Never guess from a file name, URL slug, page title, or unavailable preview.
+
 ## Output
 
 Default YAML:
@@ -24,9 +38,10 @@ Default YAML:
 alt_text: "Concise alt text"
 classification: "ui-screenshot | diagram | chart | product-image | decorative"
 note: "Optional assumption, uncertainty, or empty-alt rationale"
+source: "Optional normalized local path or URL"
 ```
 
-Omit `note` when it adds no value. For a decorative image, return `alt_text: ""` and explain the decision briefly in `note`.
+Omit `note` when it adds no value. Include `source` when the user supplied a path or URL; omit it for an attachment. For a decorative image, return `alt_text: ""` and explain the decision briefly in `note`.
 
 If `output_format` is `plain`, return only the alt-text string. Do not wrap it in quotation marks.
 
