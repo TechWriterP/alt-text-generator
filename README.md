@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🖼️ Alt Text Generator
+# ✨ Alt Text Generator
 
 ### Clear, concise alt text for technical documentation
 
@@ -100,7 +100,7 @@ Copy-Item -Recurse -Force $source $destination
 > [!NOTE]
 > If a skill with the same name is already installed, remove or rename it before copying the new version. Start a new Codex task after installation.
 
-## 💬 Example prompts
+## 📝 Example prompts
 
 <details open>
 <summary><strong>UI screenshot from the project</strong></summary>
@@ -150,7 +150,7 @@ Page context: Troubleshoot an invalid password during sign-in.
 
 </details>
 
-## ✅ Example output
+## 💡 Example output
 
 ```yaml
 alt_text: "Production deployment for version 2.4.1 has a Success status"
@@ -167,7 +167,7 @@ note: "The image adds no information to the page."
 source: "docs/images/decorative-wave.png"
 ```
 
-## ♿ Quality principles
+## 🛡️ Quality principles
 
 The skill aims to produce alt text that is:
 
